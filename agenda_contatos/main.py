@@ -1,7 +1,8 @@
 from connection import *
 from tabulate import tabulate
 import os
-
+def limpar():
+    os.system('cls')
 def pausar():
     pausa = input('Pressione ENTER para continuar...')
 
@@ -14,7 +15,7 @@ while True:
     F - Fechar Programa
     ''')
     escolha = input('Escolha uma opção: ')
-    os.system('cls')
+    limpar()
 
     if escolha == 'L' or escolha == 'l':
         info=[]
@@ -35,7 +36,7 @@ while True:
         except:
             print('Ocorreu um erro, tente mais tarde')
         pausar()
-        os.system('cls')
+        limpar()
 
     elif escolha == 'E' or escolha == 'e':
 
@@ -69,7 +70,7 @@ while True:
                 break
             except:
                 print('Ocorreu um erro, tente novamente')
-            os.system('cls')
+            limpar()
 
     elif escolha == 'V' or escolha == 'v':
         myqueries.execute("SELECT * FROM contatos")
@@ -93,7 +94,7 @@ while True:
     
         print(tabulate(table,headers="firstrow",tablefmt="pretty"))
         pausar()
-        os.system('cls')
+        limpar()
 
     elif escolha == 'A' or escolha == 'a':
         break_while = False
@@ -154,6 +155,7 @@ while True:
                         mydatabase.commit()
                         print('Contato alterado com sucesso')
                         pausar()
+                        limpar()
                     except:
                         print('Ocorreu um erro, tente novamente')
 
